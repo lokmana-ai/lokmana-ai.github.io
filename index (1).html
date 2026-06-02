@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Automation for Hotels & Businesses | Lokmana AI</title>
+  <meta name="description" content="AI chatbot, automated booking systems, and CRM integrations built for hotels, restaurants, and service businesses in Indonesia and Australia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f5f5f3;
+      --text: #1a1a1a;
+      --text-secondary: #5a5a5a;
+      --text-tertiary: #999;
+      --border: rgba(0,0,0,0.1);
+      --border-strong: rgba(0,0,0,0.2);
+      --accent: #1a1a1a;
+      --accent-text: #ffffff;
+      --info-bg: #e6f1fb;
+      --info-text: #185fa5;
+      --success-bg: #eaf3de;
+      --success-text: #3b6d11;
+      --danger-text: #a32d2d;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1a1a;
+        --bg-secondary: #242424;
+        --text: #f0f0ee;
+        --text-secondary: #aaa;
+        --text-tertiary: #666;
+        --border: rgba(255,255,255,0.1);
+        --border-strong: rgba(255,255,255,0.2);
+        --accent: #f0f0ee;
+        --accent-text: #1a1a1a;
+        --info-bg: #0c447c22;
+        --info-text: #85b7eb;
+        --success-bg: #27500a22;
+        --success-text: #97c459;
+        --danger-text: #f09595;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 0.5px solid var(--border);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+
+    nav .inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    nav a.cta {
+      font-size: 13px;
+      font-weight: 500;
+      background: var(--accent);
+      color: var(--accent-text);
+      padding: 8px 18px;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    nav a.cta:hover { opacity: 0.8; }
+
+    /* HERO */
+    .hero {
+      padding: 4rem 0 3rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--info-text);
+      background: var(--info-bg);
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--info-text);
+    }
+
+    .hero .lead {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .btn-ghost:hover { color: var(--text); }
+
+    /* SECTIONS */
+    section {
+      padding: 3rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    /* PROBLEM */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .problem-card {
+      background: var(--bg-secondary);
+      border-radius: 10px;
+      padding: 1.1rem;
+    }
+
+    .problem-card .icon {
+      font-size: 20px;
+      color: var(--danger-text);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .problem-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* HOW IT WORKS */
+    .flow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-secondary);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .flow-step i {
+      font-size: 16px;
+      color: var(--info-text);
+    }
+
+    .arrow {
+      color: var(--text-tertiary);
+      font-size: 16px;
+    }
+
+    .tools-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* PACKAGES */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 1.25rem;
+    }
+
+    .tab {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 99px;
+      border: 0.5px solid var(--border-strong);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.15s;
+    }
+
+    .tab.active {
+      background: var(--accent);
+      color: var(--accent-text);
+      border-color: var(--accent);
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .pkg {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .pkg.featured {
+      border: 2px solid var(--info-text);
+    }
+
+    .pkg-badge {
+      font-size: 11px;
+      background: var(--info-bg);
+      color: var(--info-text);
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .pkg h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .pkg .price {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .pkg .price strong {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text);
+      display: block;
+    }
+
+    .pkg ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pkg ul li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .pkg ul li i {
+      font-size: 14px;
+      color: var(--success-text);
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .pricing-note {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 14px;
+      font-style: italic;
+    }
+
+    /* CASE STUDY */
+    .case-study-card {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .cs-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--success-text);
+      background: var(--success-bg);
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .case-study-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .case-study-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 18px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    .stat span {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-section p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+    }
+
+    .cta-note {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 0;
+      border-top: 0.5px solid var(--border);
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      .flow-step { font-size: 12px; padding: 8px 12px; }
+      .arrow { display: none; }
+      .flow { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container inner">
+      <a href="#" class="logo">Lokmana AI</a>
+      <a href="https://tally.so/r/xXl5kr" class="cta" target="_blank">Get started ↗</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge">
+        <i class="ti ti-robot" aria-hidden="true"></i>
+        AI automation service
+      </div>
+      <h1>Stop losing leads.<br>Let <em>AI work</em> 24/7.</h1>
+      <p class="lead">Automated booking systems, AI chatbots, and CRM integrations — built for hotels, restaurants, and service businesses in Indonesia and Australia.</p>
+      <div class="hero-actions">
+        <a href="https://tally.so/r/xXl5kr" class="btn-primary" target="_blank">Get a free consultation ↗</a>
+        <a href="#case-study" class="btn-ghost">See live example <i class="ti ti-arrow-down" aria-hidden="true"></i></a>
+      </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <section>
+      <div class="section-label">The problem</div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <i class="ti ti-clock-off icon" aria-hidden="true"></i>
+          <p>Guests inquire at 2AM — nobody replies — they book elsewhere</p>
+        </div>
+        <div class="problem-card">
+          <i class="ti ti-message-off icon" aria-hidden="true"></i>
+          <p>Staff spend hours answering the same questions repeatedly</p>
+        </div>
+        <div class="problem-card">
+          <i class="ti ti-table-off icon" aria-hidden="true"></i>
+          <p>Lead data scattered across WhatsApp, email, and sticky notes</p>
+        </div>
+        <div class="problem-card">
+          <i class="ti ti-alert-circle icon" aria-hidden="true"></i>
+          <p>No system to follow up — hot leads go cold fast</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section>
+      <div class="section-label">How it works</div>
+      <div class="flow">
+        <div class="flow-step"><i class="ti ti-robot" aria-hidden="true"></i> AI chatbot on website</div>
+        <span class="arrow">→</span>
+        <div class="flow-step"><i class="ti ti-forms" aria-hidden="true"></i> Booking inquiry form</div>
+        <span class="arrow">→</span>
+        <div class="flow-step"><i class="ti ti-database" aria-hidden="true"></i> Auto-saved to CRM</div>
+        <span class="arrow">→</span>
+        <div class="flow-step"><i class="ti ti-mail" aria-hidden="true"></i> Instant email alert</div>
+      </div>
+      <p class="tools-note">
+        <i class="ti ti-settings" aria-hidden="true"></i>
+        Built with Botpress · Tally · Airtable · n8n
+      </p>
+    </section>
+
+    <!-- PACKAGES -->
+    <section>
+      <div class="section-label">Packages</div>
+      <div class="tabs">
+        <button class="tab active" onclick="showPricing('idr', this)">IDR — Indonesia</button>
+        <button class="tab" onclick="showPricing('aud', this)">AUD — Australia</button>
+      </div>
+
+      <div id="idr-pricing" class="packages">
+        <div class="pkg">
+          <h3>Starter</h3>
+          <div class="price">
+            <strong>Rp 3–5 juta</strong>
+            + Rp 500rb/bulan
+          </div>
+          <ul>
+            <li><i class="ti ti-check"></i> AI chatbot di website</li>
+            <li><i class="ti ti-check"></i> Booking inquiry form</li>
+            <li><i class="ti ti-check"></i> Notifikasi email otomatis</li>
+          </ul>
+        </div>
+        <div class="pkg featured">
+          <div class="pkg-badge">Most popular</div>
+          <h3>Growth</h3>
+          <div class="price">
+            <strong>Rp 7–10 juta</strong>
+            + Rp 1–1,5 juta/bulan
+          </div>
+          <ul>
+            <li><i class="ti ti-check"></i> Semua di Starter</li>
+            <li><i class="ti ti-check"></i> Airtable CRM otomatis</li>
+            <li><i class="ti ti-check"></i> n8n automation workflow</li>
+            <li><i class="ti ti-check"></i> Lead scoring & status</li>
+          </ul>
+        </div>
+        <div class="pkg">
+          <h3>Pro</h3>
+          <div class="price">
+            <strong>Rp 12–18 juta</strong>
+            + Rp 2 juta/bulan
+          </div>
+          <ul>
+            <li><i class="ti ti-check"></i> Semua di Growth</li>
+            <li><i class="ti ti-check"></i> Custom automation flow</li>
+            <li><i class="ti ti-check"></i> Onboarding & training</li>
+            <li><i class="ti ti-check"></i> 1 bulan support penuh</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="aud-pricing" class="packages" style="display:none;">
+        <div class="pkg">
+          <h3>Starter</h3>
+          <div class="price">
+            <strong>AUD 300–500</strong>
+            + AUD 80–100/month
+          </div>
+          <ul>
+            <li><i class="ti ti-check"></i> AI chatbot on your website</li>
+            <li><i class="ti ti-check"></i> Booking inquiry form</li>
+            <li><i class="ti ti-check"></i> Automated email notifications</li>
+          </ul>
+        </div>
+        <div class="pkg featured">
+          <div class="pkg-badge">Most popular</div>
+          <h3>Growth</h3>
+          <div class="price">
+            <strong>AUD 700–1,200</strong>
+            + AUD 150–200/month
+          </div>
+          <ul>
+            <li><i class="ti ti-check"></i> Everything in Starter</li>
+            <li><i class="ti ti-check"></i> Airtable CRM automation</li>
+            <li><i class="ti ti-check"></i> n8n workflow integration</li>
+            <li><i class="ti ti-check"></i> Lead scoring & status tracking</li>
+          </ul>
+        </div>
+        <div class="pkg">
+          <h3>Pro</h3>
+          <div class="price">
+            <strong>AUD 1,500–2,000</strong>
+            + AUD 300/month
+          </div>
+          <ul>
+            <li><i class="ti ti-check"></i> Everything in Growth</li>
+            <li><i class="ti ti-check"></i> Custom automation flows</li>
+            <li><i class="ti ti-check"></i> Onboarding & team training</li>
+            <li><i class="ti ti-check"></i> 1 month full support</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="pricing-note">All packages include setup, testing, and handover documentation. Monthly retainer covers maintenance and minor updates.</p>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section id="case-study">
+      <div class="section-label">Live case study</div>
+      <div class="case-study-card">
+        <div class="cs-badge">Live & working</div>
+        <h3>Avira Hotel Makassar</h3>
+        <p>AI chatbot deployed on the hotel website. Guests inquire → fill booking form → data auto-captured in Airtable CRM → hotel team notified via Gmail instantly. Running 24/7 with zero manual intervention. No missed leads. No manual data entry.</p>
+        <div class="stats">
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>Availability</span>
+          </div>
+          <div class="stat">
+            <strong>0s</strong>
+            <span>Response time</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Leads captured</span>
+          </div>
+          <div class="stat">
+            <strong>0</strong>
+            <span>Manual work</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Ready to automate your business?</h2>
+      <p>Fill out a quick form and I'll get back to you within 24 hours — no commitment required.</p>
+      <a href="https://tally.so/r/xXl5kr" class="btn-primary" target="_blank">Get a free consultation ↗</a>
+      <p class="cta-note">I'll explain exactly what's possible for your specific business.</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>Lokmana AI &nbsp;·&nbsp;
+        <a href="mailto:jonathanlokmanjaya66963@gmail.com">jonathanlokmanjaya66963@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function showPricing(type, btn) {
+      document.getElementById('idr-pricing').style.display = type === 'idr' ? 'grid' : 'none';
+      document.getElementById('aud-pricing').style.display = type === 'aud' ? 'grid' : 'none';
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
