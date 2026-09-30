@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <script>document.documentElement.className = "js";</script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -52,7 +53,25 @@
       }
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body { overflow-x: clip; }
+    section, #case-study { scroll-margin-top: 80px; }
+
+    :root {
+      --ease: cubic-bezier(0.22, 0.7, 0.2, 1);
+      --nav-bg: rgba(255,255,255,0.72);
+      --glow-1: rgba(24, 95, 165, 0.16);
+      --glow-2: rgba(201, 162, 83, 0.14);
+      --shadow-hover: 0 10px 30px -12px rgba(0,0,0,0.18);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --nav-bg: rgba(26,26,26,0.72);
+        --glow-1: rgba(133, 183, 235, 0.13);
+        --glow-2: rgba(201, 162, 83, 0.10);
+        --shadow-hover: 0 12px 34px -14px rgba(0,0,0,0.7);
+      }
+    }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -76,6 +95,29 @@
       top: 0;
       background: var(--bg);
       z-index: 100;
+      transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s;
+    }
+
+    @supports ((backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px))) {
+      nav {
+        background: var(--nav-bg);
+        -webkit-backdrop-filter: saturate(1.6) blur(14px);
+        backdrop-filter: saturate(1.6) blur(14px);
+      }
+    }
+
+    nav.scrolled { box-shadow: 0 6px 24px -18px rgba(0,0,0,0.5); }
+
+    #progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--info-text), #c9a253);
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      z-index: 200;
+      pointer-events: none;
     }
 
     nav .inner {
@@ -103,7 +145,10 @@
       height: 32px;
       border-radius: 8px;
       display: block;
+      transition: transform 0.4s var(--ease);
     }
+
+    nav .logo:hover img { transform: rotate(-6deg) scale(1.05); }
 
     .nav-right {
       display: flex;
@@ -153,8 +198,38 @@
 
     /* HERO */
     .hero {
-      padding: 4rem 0 3rem;
+      padding: 4.5rem 0 3.5rem;
       border-bottom: 0.5px solid var(--border);
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 420px; height: 420px;
+      top: -80px; right: -120px;
+      background: radial-gradient(circle, var(--glow-1), transparent 70%);
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+
+    .hero::after {
+      width: 300px; height: 300px;
+      top: 140px; right: 60px;
+      background: radial-gradient(circle, var(--glow-2), transparent 70%);
+      animation: drift 22s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes drift {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(-40px, 30px) scale(1.08); }
     }
 
     .badge {
@@ -215,7 +290,15 @@
       transition: opacity 0.15s;
     }
 
-    .btn-primary:hover { opacity: 0.85; }
+    .btn-primary {
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), opacity 0.15s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); opacity: 1; }
+    .btn-primary:active, nav a.cta:active { transform: translateY(0) scale(0.98); }
+    nav a.cta { transition: transform 0.25s var(--ease), opacity 0.15s; }
+    nav a.cta:hover { transform: translateY(-1px); }
+    .btn-ghost i { transition: transform 0.3s var(--ease); }
+    .btn-ghost:hover i { transform: translateY(3px); }
 
     .btn-ghost {
       display: inline-flex;
@@ -666,6 +749,61 @@
       padding: 2px 10px;
     }
 
+    /* HOVER */
+    .problem-card, .cap, .pkg, .demo, .stat, .flow-step {
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+    }
+    @media (hover: hover) {
+      .problem-card:hover, .cap:hover, .pkg:hover, .demo:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .cap:hover { border-color: var(--border-strong); }
+      .cap:hover .cap-top i { transform: scale(1.12) rotate(-4deg); }
+      .flow-step:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+    }
+    .cap-top i { transition: transform 0.35s var(--ease); }
+    .tab:hover:not(.active) { border-color: var(--text-secondary); color: var(--text); }
+    .lang-toggle button:hover:not(.active) { color: var(--text); }
+
+    /* SCROLL REVEAL (only when JS is on) */
+    .js [data-reveal] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+      transition-delay: var(--d, 0ms);
+    }
+    .js [data-reveal].in { opacity: 1; transform: none; }
+    .js [data-reveal].in.pkg:hover, .js [data-reveal].in.demo:hover,
+    .js [data-reveal].in.cap:hover, .js [data-reveal].in.problem-card:hover {
+      transform: translateY(-4px);
+      transition-delay: 0ms;
+    }
+
+    /* HERO ENTRANCE */
+    .js .hero > * {
+      opacity: 0;
+      animation: rise 0.9s var(--ease) forwards;
+    }
+    .js .hero > *:nth-child(1) { animation-delay: 0.05s; }
+    .js .hero > *:nth-child(2) { animation-delay: 0.15s; }
+    .js .hero > *:nth-child(3) { animation-delay: 0.28s; }
+    .js .hero > *:nth-child(4) { animation-delay: 0.4s; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .packages.swap { animation: rise 0.45s var(--ease); }
+    [data-i18n] { transition: opacity 0.18s ease; }
+    body.lang-fading [data-i18n] { opacity: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .js [data-reveal], .js .hero > * { opacity: 1 !important; transform: none !important; }
+    }
+
     /* CTA */
     .cta-section {
       padding: 3rem 0;
@@ -725,6 +863,7 @@
   </style>
 </head>
 <body>
+  <div id="progress" aria-hidden="true"></div>
 
   <nav>
     <div class="container inner">
@@ -1038,6 +1177,9 @@
     function showPricing(type, btn) {
       document.getElementById('idr-pricing').style.display = type === 'idr' ? 'grid' : 'none';
       document.getElementById('aud-pricing').style.display = type === 'aud' ? 'grid' : 'none';
+      var shown = document.getElementById(type + '-pricing');
+      shown.classList.remove('swap'); void shown.offsetWidth; shown.classList.add('swap');
+      shown.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('in'); });
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
     }
@@ -1163,7 +1305,17 @@
     }
 
     document.querySelectorAll('.lang-toggle button').forEach(function (b) {
-      b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+      b.addEventListener('click', function () {
+        var lang = b.getAttribute('data-lang');
+        if (document.documentElement.lang === lang) return;
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) { setLang(lang); return; }
+        document.body.classList.add('lang-fading');
+        setTimeout(function () {
+          setLang(lang);
+          document.body.classList.remove('lang-fading');
+        }, 180);
+      });
     });
 
     (function initLang() {
@@ -1171,6 +1323,60 @@
       try { saved = localStorage.getItem('lokmana_lang'); } catch (e) {}
       var browserId = (navigator.language || '').toLowerCase().indexOf('id') === 0;
       setLang(saved || (browserId ? 'id' : 'en'));
+    })();
+
+    // ---------- Scroll reveal ----------
+    (function () {
+      var groups = [
+        '.section-label', '.subhead', '.tools-note', '.tabs', '.pricing-note',
+        '.case-study-card', '.cta-section > *',
+        '.problem-grid > *', '.cap-grid > *', '.flow > *', '.packages > *', '.demo-grid > *'
+      ];
+      var els = [];
+      groups.forEach(function (sel) {
+        document.querySelectorAll(sel).forEach(function (el) {
+          if (el.hasAttribute('data-reveal')) return;
+          el.setAttribute('data-reveal', '');
+          var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+          var stagger = /grid|flow|packages|cta-section/.test(el.parentNode.className) ? Math.min(idx, 6) * 80 : 0;
+          el.style.setProperty('--d', stagger + 'ms');
+          els.push(el);
+        });
+      });
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+            // clear delay after it has appeared so hover feels instant
+            setTimeout(function () { e.target.style.setProperty('--d', '0ms'); }, 1400);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // ---------- Nav shadow + scroll progress ----------
+    (function () {
+      var nav = document.querySelector('nav');
+      var bar = document.getElementById('progress');
+      var ticking = false;
+      function update() {
+        var y = window.scrollY;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        nav.classList.toggle('scrolled', y > 8);
+        bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }, { passive: true });
+      update();
     })();
   </script>
 
