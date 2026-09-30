@@ -6,7 +6,7 @@
   <title>AI Automation for Hotels & Businesses | Lokmana AI</title>
   <meta name="description" content="AI chatbot, automated booking systems, and CRM integrations built for hotels, restaurants, and service businesses in Indonesia and Australia." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -80,9 +80,10 @@
     }
 
     nav .logo {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
       color: var(--text);
       text-decoration: none;
     }
@@ -122,10 +123,11 @@
     }
 
     .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.3rem, 6vw, 3.4rem);
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
       margin-bottom: 1.25rem;
       color: var(--text);
     }
@@ -312,7 +314,7 @@
     }
 
     .pkg h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.15rem;
       font-weight: 700;
       margin-bottom: 6px;
@@ -383,7 +385,7 @@
     }
 
     .case-study-card h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 8px;
@@ -421,6 +423,131 @@
       color: var(--text-tertiary);
     }
 
+    /* CAPABILITIES */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+    }
+
+    .cap {
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cap.soon {
+      border-style: dashed;
+      border-color: var(--border-strong);
+    }
+
+    .cap-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .cap-top i {
+      font-size: 22px;
+      color: var(--info-text);
+    }
+
+    .cap h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .cap p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .pill {
+      font-size: 10.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 99px;
+      white-space: nowrap;
+      line-height: 1.5;
+      display: inline-block;
+    }
+
+    .pill.live { background: var(--success-bg); color: var(--success-text); }
+    .pill.soon { background: var(--bg-secondary); color: var(--text-tertiary); }
+    .pill.is-demo { background: var(--info-bg); color: var(--info-text); }
+
+    .subhead {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      margin: 2rem 0 1rem;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .demo {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .demo h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .demo .loc {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: -4px;
+    }
+
+    .demo p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .demo .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .demo .tag {
+      font-size: 11px;
+      color: var(--text-secondary);
+      border: 0.5px solid var(--border-strong);
+      border-radius: 99px;
+      padding: 2px 10px;
+    }
+
     /* CTA */
     .cta-section {
       padding: 3rem 0;
@@ -428,9 +555,10 @@
     }
 
     .cta-section h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.6rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.75rem;
       font-weight: 800;
+      letter-spacing: -0.03em;
       margin-bottom: 0.75rem;
     }
 
@@ -524,21 +652,50 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
+    <!-- WHAT WE BUILD -->
     <section>
-      <div class="section-label">How it works</div>
+      <div class="section-label">What Lokmana AI can do</div>
+      <div class="cap-grid">
+        <div class="cap">
+          <div class="cap-top"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i><span class="pill live">Live</span></div>
+          <h3>WhatsApp AI chatbot</h3>
+          <p>Answers guest questions 24/7 and takes reservations directly in the chat.</p>
+        </div>
+        <div class="cap">
+          <div class="cap-top"><i class="ti ti-message-chatbot" aria-hidden="true"></i><span class="pill live">Live</span></div>
+          <h3>Website AI chatbot</h3>
+          <p>Handles FAQs on your website and sends ready-to-book visitors straight to your team.</p>
+        </div>
+        <div class="cap">
+          <div class="cap-top"><i class="ti ti-table" aria-hidden="true"></i><span class="pill live">Live</span></div>
+          <h3>Auto-saved bookings</h3>
+          <p>Every reservation lands in Google Sheets or Airtable automatically. No manual data entry.</p>
+        </div>
+        <div class="cap">
+          <div class="cap-top"><i class="ti ti-mail-bolt" aria-hidden="true"></i><span class="pill live">Live</span></div>
+          <h3>Instant email alerts</h3>
+          <p>Your team gets an email the moment a new booking comes in, so nothing slips through.</p>
+        </div>
+        <div class="cap soon">
+          <div class="cap-top"><i class="ti ti-building-skyscraper" aria-hidden="true"></i><span class="pill soon">Coming soon</span></div>
+          <h3>PMS integration</h3>
+          <p>Real-time room availability from your hotel's PMS, so the chatbot always quotes what's actually open.</p>
+        </div>
+      </div>
+
+      <div class="subhead">How it works</div>
       <div class="flow">
-        <div class="flow-step"><i class="ti ti-robot" aria-hidden="true"></i> AI chatbot on website</div>
+        <div class="flow-step"><i class="ti ti-message-circle" aria-hidden="true"></i> Guest chats on WhatsApp or website</div>
         <span class="arrow">→</span>
-        <div class="flow-step"><i class="ti ti-forms" aria-hidden="true"></i> Booking inquiry form</div>
+        <div class="flow-step"><i class="ti ti-robot" aria-hidden="true"></i> AI answers &amp; takes the booking</div>
         <span class="arrow">→</span>
-        <div class="flow-step"><i class="ti ti-database" aria-hidden="true"></i> Auto-saved to CRM</div>
+        <div class="flow-step"><i class="ti ti-database" aria-hidden="true"></i> Saved to Google Sheets</div>
         <span class="arrow">→</span>
-        <div class="flow-step"><i class="ti ti-mail" aria-hidden="true"></i> Instant email alert</div>
+        <div class="flow-step"><i class="ti ti-mail" aria-hidden="true"></i> Team gets an email alert</div>
       </div>
       <p class="tools-note">
         <i class="ti ti-settings" aria-hidden="true"></i>
-        Built with Botpress · Tally · Airtable · n8n
+        Built with Botpress · WhatsApp Business API · Make.com · Google Sheets · Airtable
       </p>
     </section>
 
@@ -642,42 +799,62 @@
       <div class="section-label">Case studies</div>
 
       <!-- Avira Hotel -->
-      <div class="case-study-card" style="margin-bottom: 12px;">
-        <div class="cs-badge">Live & working</div>
+      <div class="case-study-card">
+        <div class="cs-badge">Live &amp; working</div>
         <h3>Avira Hotel Makassar</h3>
-        <p>AI chatbot deployed on the hotel website. Guests inquire → fill booking form → data auto-captured in Airtable CRM → hotel team notified via Gmail instantly. Running 24/7 with zero manual intervention. No missed leads. No manual data entry.</p>
+        <p>WhatsApp AI chatbot that answers guest questions and takes room reservations in the chat: room type, package, check-in and check-out dates. Every booking is saved to Google Sheets automatically, and the front office gets an instant email alert to close OTA allotment before it overbooks.</p>
         <div class="stats">
           <div class="stat"><strong>24/7</strong><span>Availability</span></div>
           <div class="stat"><strong>0s</strong><span>Response time</span></div>
-          <div class="stat"><strong>100%</strong><span>Leads captured</span></div>
-          <div class="stat"><strong>0</strong><span>Manual work</span></div>
-        </div>
-      </div>
-
-      <!-- Emerge Martial Arts -->
-      <div class="case-study-card" style="margin-bottom: 12px; --success-bg: #e8f0fe; --success-text: #1a56a0;">
-        <div class="cs-badge" style="background: #e8f0fe; color: #1a56a0;">Demo project</div>
-        <h3>Emerge Martial Arts — Mascot, Sydney</h3>
-        <p>AI chatbot built for a martial arts gym in Sydney. Prospective members can browse class schedules and rosters for BJJ, Boxing, MMA and more — then register instantly. Registration data auto-captured in Google Sheets via Make.com. Zero manual admin for the gym team.</p>
-        <div class="stats">
-          <div class="stat"><strong>24/7</strong><span>Class info availability</span></div>
-          <div class="stat"><strong>Auto</strong><span>Registration capture</span></div>
-          <div class="stat"><strong>Google Sheets</strong><span>CRM integration</span></div>
-        </div>
-      </div>
-
-      <!-- Kim Sun Young -->
-      <div class="case-study-card" style="--success-bg: #e8f0fe; --success-text: #1a56a0;">
-        <div class="cs-badge" style="background: #e8f0fe; color: #1a56a0;">Demo project</div>
-        <h3>Kim Sun Young Salon — Sydney (4 locations)</h3>
-        <p>AI chatbot built for a multi-location hair and beauty salon across Liverpool, World Square, Strathfield, and Haymarket. Clients can explore services, ask about pricing, and book appointments by specifying their preferred time and service type. Booking data auto-sent to Google Sheets via Make.com.</p>
-        <div class="stats">
-          <div class="stat"><strong>4</strong><span>Locations covered</span></div>
           <div class="stat"><strong>Auto</strong><span>Booking capture</span></div>
-          <div class="stat"><strong>Google Sheets</strong><span>CRM integration</span></div>
+          <div class="stat"><strong>Instant</strong><span>Email alert to FO</span></div>
         </div>
       </div>
 
+      <div class="subhead">Demo projects</div>
+      <div class="demo-grid">
+
+        <div class="demo">
+          <span class="pill is-demo" style="align-self:flex-start;">Demo</span>
+          <h3>Grand Citihub Hotel Panakkukang</h3>
+          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Makassar</div>
+          <p>AI chatbot demo for a city hotel, answering questions about rooms, facilities and reservations.</p>
+          <div class="tags"><span class="tag">Hotel</span><span class="tag">AI chatbot</span></div>
+        </div>
+
+        <div class="demo">
+          <span class="pill is-demo" style="align-self:flex-start;">Demo</span>
+          <h3>Collins Barbershop</h3>
+          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Makassar · 2 branches</div>
+          <p>WhatsApp chatbot that books haircuts by branch, stylist, date and time, with every booking saved to Google Sheets.</p>
+          <div class="tags"><span class="tag">WhatsApp</span><span class="tag">Google Sheets</span></div>
+        </div>
+
+        <div class="demo">
+          <span class="pill is-demo" style="align-self:flex-start;">Demo</span>
+          <h3>Kita Dental</h3>
+          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Mascot, Sydney</div>
+          <p>Website chatbot demo for a dental clinic, answering patient questions about services and appointments.</p>
+          <div class="tags"><span class="tag">Website chatbot</span><span class="tag">Healthcare</span></div>
+        </div>
+
+        <div class="demo">
+          <span class="pill is-demo" style="align-self:flex-start;">Demo</span>
+          <h3>Emerge Martial Arts</h3>
+          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Mascot, Sydney</div>
+          <p>Class schedules for BJJ, Boxing, MMA and more, plus trial sign-ups captured straight into Google Sheets.</p>
+          <div class="tags"><span class="tag">Gym</span><span class="tag">Google Sheets</span></div>
+        </div>
+
+        <div class="demo">
+          <span class="pill is-demo" style="align-self:flex-start;">Demo</span>
+          <h3>Kim Sun Young Salon</h3>
+          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Sydney · 4 locations</div>
+          <p>Salon chatbot that explains services and pricing and takes appointment requests by time and service type.</p>
+          <div class="tags"><span class="tag">Salon</span><span class="tag">Booking</span></div>
+        </div>
+
+      </div>
     </section>
 
     <!-- CTA -->
