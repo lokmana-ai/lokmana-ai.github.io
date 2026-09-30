@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Automation for Hotels & Businesses | Lokmana AI</title>
-  <meta name="description" content="AI chatbot, automated booking systems, and CRM integrations built for hotels, restaurants, and service businesses in Indonesia and Australia." />
+  <meta name="description" content="AI chatbots for WhatsApp and websites, automated booking capture, and instant email alerts — built for hotels, restaurants, and service businesses in Indonesia and Australia." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:title" content="Lokmana AI — AI automation for hospitality" />
+  <meta property="og:description" content="AI chatbots for WhatsApp and websites, built for hotels, restaurants, and service businesses." />
+  <meta property="og:image" content="https://lokmana-ai.github.io/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
@@ -66,7 +71,7 @@
     /* NAV */
     nav {
       border-bottom: 0.5px solid var(--border);
-      padding: 1rem 0;
+      padding: 0.85rem 0;
       position: sticky;
       top: 0;
       background: var(--bg);
@@ -77,15 +82,59 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
     }
 
     nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 1.05rem;
       letter-spacing: -0.02em;
       color: var(--text);
       text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav .logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      border: 0.5px solid var(--border-strong);
+      border-radius: 99px;
+      padding: 2px;
+    }
+
+    .lang-toggle button {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border: none;
+      background: transparent;
+      color: var(--text-tertiary);
+      padding: 4px 10px;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .lang-toggle button.active {
+      background: var(--accent);
+      color: var(--accent-text);
     }
 
     nav a.cta {
@@ -97,6 +146,7 @@
       border-radius: 99px;
       text-decoration: none;
       transition: opacity 0.15s;
+      white-space: nowrap;
     }
 
     nav a.cta:hover { opacity: 0.8; }
@@ -185,7 +235,7 @@
       border-bottom: 0.5px solid var(--border);
     }
 
-    .section-label {
+    .section-label, .subhead {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -193,6 +243,8 @@
       font-weight: 500;
       margin-bottom: 1.5rem;
     }
+
+    .subhead { margin: 2rem 0 1rem; }
 
     /* PROBLEM */
     .problem-grid {
@@ -219,6 +271,68 @@
       color: var(--text-secondary);
       line-height: 1.5;
     }
+
+    /* CAPABILITIES */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+    }
+
+    .cap {
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cap.soon {
+      border-style: dashed;
+      border-color: var(--border-strong);
+    }
+
+    .cap-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .cap-top i {
+      font-size: 22px;
+      color: var(--info-text);
+    }
+
+    .cap h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .cap p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+      padding: 3px 10px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .pill.live { background: var(--success-bg); color: var(--success-text); }
+    .pill.soon { background: var(--bg-secondary); color: var(--text-tertiary); }
+    .pill.is-demo { background: var(--info-bg); color: var(--info-text); align-self: flex-start; }
 
     /* HOW IT WORKS */
     .flow {
@@ -264,6 +378,7 @@
       display: flex;
       gap: 8px;
       margin-bottom: 1.25rem;
+      flex-wrap: wrap;
     }
 
     .tab {
@@ -317,6 +432,7 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.15rem;
       font-weight: 700;
+      letter-spacing: -0.01em;
       margin-bottom: 6px;
     }
 
@@ -388,6 +504,7 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
+      letter-spacing: -0.01em;
       margin-bottom: 8px;
     }
 
@@ -423,77 +540,78 @@
       color: var(--text-tertiary);
     }
 
-    /* CAPABILITIES */
-    .cap-grid {
+    .video-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 12px;
+      margin-top: 1.25rem;
     }
 
-    .cap {
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1.1rem 1.2rem;
+    .video-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 6px;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 6px;
     }
 
-    .cap.soon {
-      border-style: dashed;
-      border-color: var(--border-strong);
+    /* VIDEO (click to play) */
+    .video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      display: block;
     }
 
-    .cap-top {
+    .video img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.85;
+      transition: opacity 0.2s, transform 0.3s;
+    }
+
+    .video:hover img { opacity: 1; transform: scale(1.02); }
+
+    .video .play {
+      position: absolute;
+      inset: 0;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
+      justify-content: center;
     }
 
-    .cap-top i {
+    .video .play span {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 22px;
-      color: var(--info-text);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      padding-left: 3px;
     }
 
-    .cap h3 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.98rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+    .video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
-    .cap p {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
-
-    .pill {
-      font-size: 10.5px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 3px 10px;
-      border-radius: 99px;
-      white-space: nowrap;
-      line-height: 1.5;
-      display: inline-block;
-    }
-
-    .pill.live { background: var(--success-bg); color: var(--success-text); }
-    .pill.soon { background: var(--bg-secondary); color: var(--text-tertiary); }
-    .pill.is-demo { background: var(--info-bg); color: var(--info-text); }
-
-    .subhead {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-tertiary);
-      font-weight: 500;
-      margin: 2rem 0 1rem;
-    }
-
+    /* DEMO PROJECTS */
     .demo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -601,6 +719,8 @@
       .flow-step { font-size: 12px; padding: 8px 12px; }
       .arrow { display: none; }
       .flow { gap: 8px; }
+      nav .logo span { display: none; }
+      nav a.cta { padding: 7px 14px; }
     }
   </style>
 </head>
@@ -608,8 +728,17 @@
 
   <nav>
     <div class="container inner">
-      <a href="#" class="logo">Lokmana AI</a>
-      <a href="https://wa.me/628114447990?text=Halo%20Lokmana%20AI%2C%20saya%20mau%20konsultasi%20gratis%20soal%20chatbot%20untuk%20bisnis%20saya." rel="noopener" class="cta" target="_blank">Get started ↗</a>
+      <a href="#" class="logo">
+        <img src="logo.png" alt="Lokmana AI logo" width="32" height="32" />
+        <span>Lokmana AI</span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="id">ID</button>
+        </div>
+        <a href="https://wa.me/628114447990" data-wa class="cta" target="_blank" rel="noopener" data-i18n="nav_cta">Get started ↗</a>
+      </div>
     </div>
   </nav>
 
@@ -619,89 +748,89 @@
     <div class="hero">
       <div class="badge">
         <i class="ti ti-robot" aria-hidden="true"></i>
-        AI automation service
+        <span data-i18n="hero_badge">AI automation service</span>
       </div>
-      <h1>Stop losing leads.<br>Let <em>AI work</em> 24/7.</h1>
-      <p class="lead">Automated booking systems, AI chatbots, and CRM integrations — built for hotels, restaurants, and service businesses in Indonesia and Australia.</p>
+      <h1 data-i18n="hero_title">Stop losing leads.<br>Let <em>AI work</em> 24/7.</h1>
+      <p class="lead" data-i18n="hero_lead">AI chatbots on WhatsApp and your website, automated booking capture, and instant alerts for your team — built for hotels, restaurants, and service businesses in Indonesia and Australia.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/628114447990?text=Halo%20Lokmana%20AI%2C%20saya%20mau%20konsultasi%20gratis%20soal%20chatbot%20untuk%20bisnis%20saya." rel="noopener" class="btn-primary" target="_blank">Get a free consultation ↗</a>
-        <a href="#case-study" class="btn-ghost">See live example <i class="ti ti-arrow-down" aria-hidden="true"></i></a>
+        <a href="https://wa.me/628114447990" data-wa class="btn-primary" target="_blank" rel="noopener" data-i18n="cta_btn">Get a free consultation ↗</a>
+        <a href="#case-study" class="btn-ghost"><span data-i18n="hero_example">See live example</span> <i class="ti ti-arrow-down" aria-hidden="true"></i></a>
       </div>
     </div>
 
     <!-- PROBLEM -->
     <section>
-      <div class="section-label">The problem</div>
+      <div class="section-label" data-i18n="problem_label">The problem</div>
       <div class="problem-grid">
         <div class="problem-card">
           <i class="ti ti-clock-off icon" aria-hidden="true"></i>
-          <p>Guests inquire at 2AM — nobody replies — they book elsewhere</p>
+          <p data-i18n="problem_1">Guests inquire at 2AM — nobody replies — they book elsewhere</p>
         </div>
         <div class="problem-card">
           <i class="ti ti-message-off icon" aria-hidden="true"></i>
-          <p>Staff spend hours answering the same questions repeatedly</p>
+          <p data-i18n="problem_2">Staff spend hours answering the same questions repeatedly</p>
         </div>
         <div class="problem-card">
           <i class="ti ti-table-off icon" aria-hidden="true"></i>
-          <p>Lead data scattered across WhatsApp, email, and sticky notes</p>
+          <p data-i18n="problem_3">Lead data scattered across WhatsApp, email, and sticky notes</p>
         </div>
         <div class="problem-card">
           <i class="ti ti-alert-circle icon" aria-hidden="true"></i>
-          <p>No system to follow up — hot leads go cold fast</p>
+          <p data-i18n="problem_4">No system to follow up — hot leads go cold fast</p>
         </div>
       </div>
     </section>
 
     <!-- WHAT WE BUILD -->
     <section>
-      <div class="section-label">What Lokmana AI can do</div>
+      <div class="section-label" data-i18n="cap_label">What Lokmana AI can do</div>
       <div class="cap-grid">
         <div class="cap">
-          <div class="cap-top"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i><span class="pill live">Live</span></div>
-          <h3>WhatsApp AI chatbot</h3>
-          <p>Answers guest questions 24/7 and takes reservations directly in the chat.</p>
+          <div class="cap-top"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i><span class="pill live" data-i18n="pill_live">Live</span></div>
+          <h3 data-i18n="cap1_t">WhatsApp AI chatbot</h3>
+          <p data-i18n="cap1_d">Answers guest questions 24/7 and takes reservations directly in the chat.</p>
         </div>
         <div class="cap">
-          <div class="cap-top"><i class="ti ti-message-chatbot" aria-hidden="true"></i><span class="pill live">Live</span></div>
-          <h3>Website AI chatbot</h3>
-          <p>Handles FAQs on your website and sends ready-to-book visitors straight to your team.</p>
+          <div class="cap-top"><i class="ti ti-message-chatbot" aria-hidden="true"></i><span class="pill live" data-i18n="pill_live">Live</span></div>
+          <h3 data-i18n="cap2_t">Website AI chatbot</h3>
+          <p data-i18n="cap2_d">Handles FAQs on your website and sends ready-to-book visitors straight to your team.</p>
         </div>
         <div class="cap">
-          <div class="cap-top"><i class="ti ti-table" aria-hidden="true"></i><span class="pill live">Live</span></div>
-          <h3>Auto-saved bookings</h3>
-          <p>Every reservation lands in Google Sheets or Airtable automatically. No manual data entry.</p>
+          <div class="cap-top"><i class="ti ti-table" aria-hidden="true"></i><span class="pill live" data-i18n="pill_live">Live</span></div>
+          <h3 data-i18n="cap3_t">Auto-saved bookings</h3>
+          <p data-i18n="cap3_d">Every reservation lands in Google Sheets or Airtable automatically. No manual data entry.</p>
         </div>
         <div class="cap">
-          <div class="cap-top"><i class="ti ti-mail-bolt" aria-hidden="true"></i><span class="pill live">Live</span></div>
-          <h3>Instant email alerts</h3>
-          <p>Your team gets an email the moment a new booking comes in, so nothing slips through.</p>
+          <div class="cap-top"><i class="ti ti-mail-bolt" aria-hidden="true"></i><span class="pill live" data-i18n="pill_live">Live</span></div>
+          <h3 data-i18n="cap4_t">Instant email alerts</h3>
+          <p data-i18n="cap4_d">Your team gets an email the moment a new booking comes in, so nothing slips through.</p>
         </div>
         <div class="cap soon">
-          <div class="cap-top"><i class="ti ti-building-skyscraper" aria-hidden="true"></i><span class="pill soon">Coming soon</span></div>
-          <h3>PMS integration</h3>
-          <p>Real-time room availability from your hotel's PMS, so the chatbot always quotes what's actually open.</p>
+          <div class="cap-top"><i class="ti ti-building-skyscraper" aria-hidden="true"></i><span class="pill soon" data-i18n="pill_soon">Coming soon</span></div>
+          <h3 data-i18n="cap5_t">PMS integration</h3>
+          <p data-i18n="cap5_d">Real-time room availability from your hotel's PMS, so the chatbot always quotes what's actually open.</p>
         </div>
       </div>
 
-      <div class="subhead">How it works</div>
+      <div class="subhead" data-i18n="how_label">How it works</div>
       <div class="flow">
-        <div class="flow-step"><i class="ti ti-message-circle" aria-hidden="true"></i> Guest chats on WhatsApp or website</div>
+        <div class="flow-step"><i class="ti ti-message-circle" aria-hidden="true"></i> <span data-i18n="flow_1">Guest chats on WhatsApp or website</span></div>
         <span class="arrow">→</span>
-        <div class="flow-step"><i class="ti ti-robot" aria-hidden="true"></i> AI answers &amp; takes the booking</div>
+        <div class="flow-step"><i class="ti ti-robot" aria-hidden="true"></i> <span data-i18n="flow_2">AI answers &amp; takes the booking</span></div>
         <span class="arrow">→</span>
-        <div class="flow-step"><i class="ti ti-database" aria-hidden="true"></i> Saved to Google Sheets</div>
+        <div class="flow-step"><i class="ti ti-database" aria-hidden="true"></i> <span data-i18n="flow_3">Saved to Google Sheets</span></div>
         <span class="arrow">→</span>
-        <div class="flow-step"><i class="ti ti-mail" aria-hidden="true"></i> Team gets an email alert</div>
+        <div class="flow-step"><i class="ti ti-mail" aria-hidden="true"></i> <span data-i18n="flow_4">Team gets an email alert</span></div>
       </div>
       <p class="tools-note">
         <i class="ti ti-settings" aria-hidden="true"></i>
-        Built with Botpress · WhatsApp Business API · Make.com · Google Sheets · Airtable
+        <span data-i18n="tools_note">Built with Botpress · WhatsApp Business API · Make.com · Google Sheets · Airtable</span>
       </p>
     </section>
 
     <!-- PACKAGES -->
     <section>
-      <div class="section-label">Packages</div>
+      <div class="section-label" data-i18n="pkg_label">Packages</div>
       <div class="tabs">
         <button class="tab active" onclick="showPricing('idr', this)">IDR — Indonesia</button>
         <button class="tab" onclick="showPricing('aud', this)">AUD — Australia</button>
@@ -712,39 +841,39 @@
           <h3>Starter</h3>
           <div class="price">
             <strong>Rp 3–5 juta</strong>
-            + Rp 500rb/bulan
+            <span data-i18n="idr_starter_m">+ Rp 500k/month</span>
           </div>
           <ul>
-            <li><i class="ti ti-check"></i> AI chatbot di website</li>
-            <li><i class="ti ti-check"></i> Booking inquiry form</li>
-            <li><i class="ti ti-check"></i> Notifikasi email otomatis</li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_web_chatbot">AI chatbot on your website</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_inquiry">Booking inquiry form</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_email">Automated email notifications</span></li>
           </ul>
         </div>
         <div class="pkg featured">
-          <div class="pkg-badge">Most popular</div>
+          <div class="pkg-badge" data-i18n="most_popular">Most popular</div>
           <h3>Growth</h3>
           <div class="price">
             <strong>Rp 7–10 juta</strong>
-            + Rp 1–1,5 juta/bulan
+            <span data-i18n="idr_growth_m">+ Rp 1–1.5 million/month</span>
           </div>
           <ul>
-            <li><i class="ti ti-check"></i> Semua di Starter</li>
-            <li><i class="ti ti-check"></i> Airtable CRM otomatis</li>
-            <li><i class="ti ti-check"></i> n8n automation workflow</li>
-            <li><i class="ti ti-check"></i> Lead scoring & status</li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_all_starter">Everything in Starter</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_airtable">Airtable CRM automation</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_n8n">n8n workflow integration</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_scoring">Lead scoring &amp; status tracking</span></li>
           </ul>
         </div>
         <div class="pkg">
           <h3>Pro</h3>
           <div class="price">
             <strong>Rp 12–18 juta</strong>
-            + Rp 2 juta/bulan
+            <span data-i18n="idr_pro_m">+ Rp 2 million/month</span>
           </div>
           <ul>
-            <li><i class="ti ti-check"></i> Semua di Growth</li>
-            <li><i class="ti ti-check"></i> Custom automation flow</li>
-            <li><i class="ti ti-check"></i> Onboarding & training</li>
-            <li><i class="ti ti-check"></i> 1 bulan support penuh</li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_all_growth">Everything in Growth</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_custom">Custom automation flows</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_onboarding">Onboarding &amp; team training</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_support">1 month full support</span></li>
           </ul>
         </div>
       </div>
@@ -754,104 +883,132 @@
           <h3>Starter</h3>
           <div class="price">
             <strong>AUD 300–500</strong>
-            + AUD 80–100/month
+            <span data-i18n="aud_starter_m">+ AUD 80–100/month</span>
           </div>
           <ul>
-            <li><i class="ti ti-check"></i> AI chatbot on your website</li>
-            <li><i class="ti ti-check"></i> Booking inquiry form</li>
-            <li><i class="ti ti-check"></i> Automated email notifications</li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_web_chatbot">AI chatbot on your website</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_inquiry">Booking inquiry form</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_email">Automated email notifications</span></li>
           </ul>
         </div>
         <div class="pkg featured">
-          <div class="pkg-badge">Most popular</div>
+          <div class="pkg-badge" data-i18n="most_popular">Most popular</div>
           <h3>Growth</h3>
           <div class="price">
             <strong>AUD 700–1,200</strong>
-            + AUD 150–200/month
+            <span data-i18n="aud_growth_m">+ AUD 150–200/month</span>
           </div>
           <ul>
-            <li><i class="ti ti-check"></i> Everything in Starter</li>
-            <li><i class="ti ti-check"></i> Airtable CRM automation</li>
-            <li><i class="ti ti-check"></i> n8n workflow integration</li>
-            <li><i class="ti ti-check"></i> Lead scoring & status tracking</li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_all_starter">Everything in Starter</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_airtable">Airtable CRM automation</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_n8n">n8n workflow integration</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_scoring">Lead scoring &amp; status tracking</span></li>
           </ul>
         </div>
         <div class="pkg">
           <h3>Pro</h3>
           <div class="price">
             <strong>AUD 1,500–2,000</strong>
-            + AUD 300/month
+            <span data-i18n="aud_pro_m">+ AUD 300/month</span>
           </div>
           <ul>
-            <li><i class="ti ti-check"></i> Everything in Growth</li>
-            <li><i class="ti ti-check"></i> Custom automation flows</li>
-            <li><i class="ti ti-check"></i> Onboarding & team training</li>
-            <li><i class="ti ti-check"></i> 1 month full support</li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_all_growth">Everything in Growth</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_custom">Custom automation flows</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_onboarding">Onboarding &amp; team training</span></li>
+            <li><i class="ti ti-check"></i> <span data-i18n="f_support">1 month full support</span></li>
           </ul>
         </div>
       </div>
 
-      <p class="pricing-note">All packages include setup, testing, and handover documentation. Monthly retainer covers maintenance and minor updates.</p>
+      <p class="pricing-note" data-i18n="pricing_note">All packages include setup, testing, and handover documentation. Monthly retainer covers maintenance and minor updates.</p>
     </section>
 
     <!-- CASE STUDIES -->
     <section id="case-study">
-      <div class="section-label">Case studies</div>
+      <div class="section-label" data-i18n="cs_label">Case studies</div>
 
       <!-- Avira Hotel -->
       <div class="case-study-card">
-        <div class="cs-badge">Live &amp; working</div>
+        <div class="cs-badge" data-i18n="cs_live">Live &amp; working</div>
         <h3>Avira Hotel Makassar</h3>
-        <p>WhatsApp AI chatbot that answers guest questions and takes room reservations in the chat: room type, package, check-in and check-out dates. Every booking is saved to Google Sheets automatically, and the front office gets an instant email alert to close OTA allotment before it overbooks.</p>
+        <p data-i18n="avira_desc">Two AI chatbots for one hotel. On WhatsApp, the bot answers guest questions and takes room reservations in the chat — room type, package, check-in and check-out dates — saving every booking to Google Sheets. On the website, a second chatbot handles guest enquiries and logs them in Airtable. Either way, the front office gets an instant email alert, so they can close OTA allotment before it overbooks.</p>
         <div class="stats">
-          <div class="stat"><strong>24/7</strong><span>Availability</span></div>
-          <div class="stat"><strong>0s</strong><span>Response time</span></div>
-          <div class="stat"><strong>Auto</strong><span>Booking capture</span></div>
-          <div class="stat"><strong>Instant</strong><span>Email alert to FO</span></div>
+          <div class="stat"><strong>24/7</strong><span data-i18n="st_avail">Availability</span></div>
+          <div class="stat"><strong>0s</strong><span data-i18n="st_resp">Response time</span></div>
+          <div class="stat"><strong>Auto</strong><span data-i18n="st_capture">Booking capture</span></div>
+          <div class="stat"><strong data-i18n="st_instant">Instant</strong><span data-i18n="st_fo">Email alert to FO</span></div>
+        </div>
+        <div class="video-row">
+          <div>
+            <button type="button" class="video" data-yt="sKYv25lRIzY" aria-label="Play Avira Hotel WhatsApp chatbot demo">
+              <img src="https://i.ytimg.com/vi/sKYv25lRIzY/hqdefault.jpg" alt="" loading="lazy" />
+              <span class="play"><span><i class="ti ti-player-play-filled"></i></span></span>
+            </button>
+            <div class="video-label"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> <span data-i18n="v_avira_wa">WhatsApp chatbot → Google Sheets + email</span></div>
+          </div>
+          <div>
+            <button type="button" class="video" data-yt="1y04vEt2dLo" aria-label="Play Avira Hotel website chatbot demo">
+              <img src="https://i.ytimg.com/vi/1y04vEt2dLo/hqdefault.jpg" alt="" loading="lazy" />
+              <span class="play"><span><i class="ti ti-player-play-filled"></i></span></span>
+            </button>
+            <div class="video-label"><i class="ti ti-world" aria-hidden="true"></i> <span data-i18n="v_avira_web">Website chatbot → Airtable + email</span></div>
+          </div>
         </div>
       </div>
 
-      <div class="subhead">Demo projects</div>
+      <div class="subhead" data-i18n="demo_label">Demo projects</div>
       <div class="demo-grid">
 
         <div class="demo">
-          <span class="pill is-demo" style="align-self:flex-start;">Demo</span>
-          <h3>Grand Citihub Hotel Panakkukang</h3>
-          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Makassar</div>
-          <p>AI chatbot demo for a city hotel, answering questions about rooms, facilities and reservations.</p>
-          <div class="tags"><span class="tag">Hotel</span><span class="tag">AI chatbot</span></div>
-        </div>
-
-        <div class="demo">
-          <span class="pill is-demo" style="align-self:flex-start;">Demo</span>
+          <span class="pill is-demo" data-i18n="pill_demo">Demo</span>
           <h3>Collins Barbershop</h3>
-          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Makassar · 2 branches</div>
-          <p>WhatsApp chatbot that books haircuts by branch, stylist, date and time, with every booking saved to Google Sheets.</p>
+          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> <span data-i18n="loc_collins">Makassar · 2 branches</span></div>
+          <button type="button" class="video" data-yt="8MtiRrZDm00" aria-label="Play Collins Barbershop demo">
+            <img src="https://i.ytimg.com/vi/8MtiRrZDm00/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="play"><span><i class="ti ti-player-play-filled"></i></span></span>
+          </button>
+          <p data-i18n="d_collins">WhatsApp chatbot that books haircuts by branch, stylist, date and time, with every booking saved to Google Sheets.</p>
           <div class="tags"><span class="tag">WhatsApp</span><span class="tag">Google Sheets</span></div>
         </div>
 
         <div class="demo">
-          <span class="pill is-demo" style="align-self:flex-start;">Demo</span>
-          <h3>Kita Dental</h3>
-          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Mascot, Sydney</div>
-          <p>Website chatbot demo for a dental clinic, answering patient questions about services and appointments.</p>
-          <div class="tags"><span class="tag">Website chatbot</span><span class="tag">Healthcare</span></div>
-        </div>
-
-        <div class="demo">
-          <span class="pill is-demo" style="align-self:flex-start;">Demo</span>
+          <span class="pill is-demo" data-i18n="pill_demo">Demo</span>
           <h3>Emerge Martial Arts</h3>
           <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Mascot, Sydney</div>
-          <p>Class schedules for BJJ, Boxing, MMA and more, plus trial sign-ups captured straight into Google Sheets.</p>
+          <button type="button" class="video" data-yt="u0s0157a81g" aria-label="Play Emerge Martial Arts demo">
+            <img src="https://i.ytimg.com/vi/u0s0157a81g/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="play"><span><i class="ti ti-player-play-filled"></i></span></span>
+          </button>
+          <p data-i18n="d_emerge">Class schedules for BJJ, Boxing, MMA and more, plus trial sign-ups captured straight into Google Sheets.</p>
           <div class="tags"><span class="tag">Gym</span><span class="tag">Google Sheets</span></div>
         </div>
 
         <div class="demo">
-          <span class="pill is-demo" style="align-self:flex-start;">Demo</span>
+          <span class="pill is-demo" data-i18n="pill_demo">Demo</span>
           <h3>Kim Sun Young Salon</h3>
-          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Sydney · 4 locations</div>
-          <p>Salon chatbot that explains services and pricing and takes appointment requests by time and service type.</p>
+          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> <span data-i18n="loc_ksy">Sydney · 4 locations</span></div>
+          <button type="button" class="video" data-yt="pHmBTuinM2k" aria-label="Play Kim Sun Young Salon demo">
+            <img src="https://i.ytimg.com/vi/pHmBTuinM2k/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="play"><span><i class="ti ti-player-play-filled"></i></span></span>
+          </button>
+          <p data-i18n="d_ksy">Salon chatbot that explains services and pricing and takes appointment requests by time and service type.</p>
           <div class="tags"><span class="tag">Salon</span><span class="tag">Booking</span></div>
+        </div>
+
+        <div class="demo">
+          <span class="pill is-demo" data-i18n="pill_demo">Demo</span>
+          <h3>Grand Citihub Hotel Panakkukang</h3>
+          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Makassar</div>
+          <p data-i18n="d_citihub">AI chatbot demo for a city hotel, answering questions about rooms, facilities and reservations.</p>
+          <div class="tags"><span class="tag">Hotel</span><span class="tag">AI chatbot</span></div>
+        </div>
+
+        <div class="demo">
+          <span class="pill is-demo" data-i18n="pill_demo">Demo</span>
+          <h3>Kita Dental</h3>
+          <div class="loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Mascot, Sydney</div>
+          <p data-i18n="d_kita">Website chatbot demo for a dental clinic, answering patient questions about services and appointments.</p>
+          <div class="tags"><span class="tag" data-i18n="tag_webbot">Website chatbot</span><span class="tag" data-i18n="tag_health">Healthcare</span></div>
         </div>
 
       </div>
@@ -859,10 +1016,10 @@
 
     <!-- CTA -->
     <div class="cta-section">
-      <h2>Ready to automate your business?</h2>
-      <p>Chat with me directly on WhatsApp — I'll get back to you within 24 hours. No commitment required.</p>
-      <a href="https://wa.me/628114447990?text=Halo%20Lokmana%20AI%2C%20saya%20mau%20konsultasi%20gratis%20soal%20chatbot%20untuk%20bisnis%20saya." rel="noopener" class="btn-primary" target="_blank">Get a free consultation ↗</a>
-      <p class="cta-note">I'll explain exactly what's possible for your specific business.</p>
+      <h2 data-i18n="cta_title">Ready to automate your business?</h2>
+      <p data-i18n="cta_text">Chat with me directly on WhatsApp — I'll get back to you within 24 hours. No commitment required.</p>
+      <a href="https://wa.me/628114447990" data-wa class="btn-primary" target="_blank" rel="noopener" data-i18n="cta_btn">Get a free consultation ↗</a>
+      <p class="cta-note" data-i18n="cta_note">I'll explain exactly what's possible for your specific business.</p>
     </div>
 
   </div>
@@ -872,6 +1029,7 @@
     <div class="container">
       <p>Lokmana AI &nbsp;·&nbsp;
         <a href="mailto:jonathanlokmanjaya66963@gmail.com">jonathanlokmanjaya66963@gmail.com</a>
+        &nbsp;·&nbsp; <a href="https://instagram.com/lokmana.ai" target="_blank" rel="noopener">@lokmana.ai</a>
       </p>
     </div>
   </footer>
@@ -883,6 +1041,137 @@
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
     }
+
+    // ---------- YouTube: click to play ----------
+    document.querySelectorAll('.video[data-yt]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var id = el.getAttribute('data-yt');
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+        iframe.title = el.getAttribute('aria-label') || 'Demo video';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        el.innerHTML = '';
+        el.appendChild(iframe);
+        el.style.cursor = 'default';
+      }, { once: true });
+    });
+
+    // ---------- Language toggle (EN / ID) ----------
+    var WA_NUMBER = '628114447990';
+    var WA_TEXT = {
+      en: "Hi Lokmana AI, I'd like a free consultation about a chatbot for my business.",
+      id: 'Halo Lokmana AI, saya mau konsultasi gratis soal chatbot untuk bisnis saya.'
+    };
+
+    var ID = {
+      nav_cta: 'Mulai ↗',
+      hero_badge: 'Layanan otomasi AI',
+      hero_title: 'Jangan lewatkan calon tamu.<br>Biar <em>AI kerja</em> 24/7.',
+      hero_lead: 'AI chatbot di WhatsApp dan website, reservasi yang tercatat otomatis, dan notifikasi instan untuk tim kamu — dibuat khusus untuk hotel, restoran, dan bisnis jasa di Indonesia dan Australia.',
+      cta_btn: 'Konsultasi gratis ↗',
+      hero_example: 'Lihat contoh nyata',
+      problem_label: 'Masalahnya',
+      problem_1: 'Tamu tanya jam 2 pagi — tidak ada yang balas — akhirnya booking di tempat lain',
+      problem_2: 'Staf menghabiskan berjam-jam menjawab pertanyaan yang sama berulang kali',
+      problem_3: 'Data calon tamu tercecer di WhatsApp, email, dan catatan tempel',
+      problem_4: 'Tidak ada sistem follow-up — calon tamu yang tertarik cepat hilang',
+      cap_label: 'Yang bisa dikerjakan Lokmana AI',
+      pill_live: 'Aktif',
+      pill_soon: 'Segera hadir',
+      cap1_t: 'AI chatbot WhatsApp',
+      cap1_d: 'Menjawab pertanyaan tamu 24/7 dan menerima reservasi langsung di chat.',
+      cap2_t: 'AI chatbot website',
+      cap2_d: 'Menjawab FAQ di website dan mengarahkan pengunjung yang siap booking langsung ke tim kamu.',
+      cap3_t: 'Reservasi tercatat otomatis',
+      cap3_d: 'Setiap reservasi otomatis masuk ke Google Sheets atau Airtable. Tanpa input data manual.',
+      cap4_t: 'Notifikasi email instan',
+      cap4_d: 'Tim kamu langsung dapat email begitu ada reservasi baru, jadi tidak ada yang terlewat.',
+      cap5_t: 'Integrasi PMS',
+      cap5_d: 'Ketersediaan kamar real-time dari PMS hotel, jadi chatbot selalu menawarkan kamar yang benar-benar tersedia.',
+      how_label: 'Cara kerjanya',
+      flow_1: 'Tamu chat lewat WhatsApp atau website',
+      flow_2: 'AI menjawab &amp; menerima booking',
+      flow_3: 'Tersimpan di Google Sheets',
+      flow_4: 'Tim dapat notifikasi email',
+      tools_note: 'Dibangun dengan Botpress · WhatsApp Business API · Make.com · Google Sheets · Airtable',
+      pkg_label: 'Paket',
+      idr_starter_m: '+ Rp 500rb/bulan',
+      idr_growth_m: '+ Rp 1–1,5 juta/bulan',
+      idr_pro_m: '+ Rp 2 juta/bulan',
+      aud_starter_m: '+ AUD 80–100/bulan',
+      aud_growth_m: '+ AUD 150–200/bulan',
+      aud_pro_m: '+ AUD 300/bulan',
+      f_web_chatbot: 'AI chatbot di website',
+      f_inquiry: 'Booking inquiry form',
+      f_email: 'Notifikasi email otomatis',
+      most_popular: 'Paling populer',
+      f_all_starter: 'Semua di Starter',
+      f_airtable: 'Airtable CRM otomatis',
+      f_n8n: 'n8n automation workflow',
+      f_scoring: 'Lead scoring &amp; status',
+      f_all_growth: 'Semua di Growth',
+      f_custom: 'Custom automation flow',
+      f_onboarding: 'Onboarding &amp; training tim',
+      f_support: '1 bulan support penuh',
+      pricing_note: 'Semua paket sudah termasuk setup, testing, dan dokumentasi serah terima. Biaya bulanan mencakup maintenance dan update kecil.',
+      cs_label: 'Studi kasus',
+      cs_live: 'Aktif &amp; berjalan',
+      avira_desc: 'Dua AI chatbot untuk satu hotel. Di WhatsApp, bot menjawab pertanyaan tamu dan menerima reservasi kamar langsung di chat — tipe kamar, paket, tanggal check-in dan check-out — lalu menyimpan setiap booking ke Google Sheets. Di website, chatbot kedua menangani pertanyaan tamu dan mencatatnya di Airtable. Dari mana pun asalnya, front office langsung dapat notifikasi email, sehingga bisa menutup allotment OTA sebelum terjadi overbooking.',
+      st_avail: 'Selalu siap',
+      st_resp: 'Waktu respons',
+      st_capture: 'Booking tercatat',
+      st_instant: 'Instan',
+      st_fo: 'Notifikasi email ke FO',
+      v_avira_wa: 'Chatbot WhatsApp → Google Sheets + email',
+      v_avira_web: 'Chatbot website → Airtable + email',
+      demo_label: 'Proyek demo',
+      pill_demo: 'Demo',
+      loc_collins: 'Makassar · 2 cabang',
+      loc_ksy: 'Sydney · 4 lokasi',
+      d_collins: 'Chatbot WhatsApp untuk reservasi potong rambut per cabang, stylist, tanggal, dan jam, dengan setiap booking tersimpan di Google Sheets.',
+      d_emerge: 'Info jadwal kelas BJJ, Boxing, MMA, dan lainnya, plus pendaftaran kelas trial yang langsung tercatat di Google Sheets.',
+      d_ksy: 'Chatbot salon yang menjelaskan layanan dan harga, serta menerima permintaan appointment sesuai jam dan jenis layanan.',
+      d_citihub: 'Demo AI chatbot untuk hotel bisnis, menjawab pertanyaan seputar kamar, fasilitas, dan reservasi.',
+      d_kita: 'Demo chatbot website untuk klinik gigi, menjawab pertanyaan pasien seputar layanan dan jadwal appointment.',
+      tag_webbot: 'Chatbot website',
+      tag_health: 'Kesehatan',
+      cta_title: 'Siap mengotomatisasi bisnis kamu?',
+      cta_text: 'Chat langsung dengan saya di WhatsApp — saya balas dalam 24 jam. Tanpa komitmen.',
+      cta_note: 'Saya jelaskan apa saja yang bisa dibuat untuk bisnis kamu.'
+    };
+
+    var EN = {};
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (!(k in EN)) EN[k] = el.innerHTML;
+    });
+
+    function setLang(lang) {
+      var dict = lang === 'id' ? ID : EN;
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var k = el.getAttribute('data-i18n');
+        if (dict[k] !== undefined) el.innerHTML = dict[k];
+      });
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang-toggle button').forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+      });
+      var waHref = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(WA_TEXT[lang]);
+      document.querySelectorAll('[data-wa]').forEach(function (a) { a.href = waHref; });
+      try { localStorage.setItem('lokmana_lang', lang); } catch (e) {}
+    }
+
+    document.querySelectorAll('.lang-toggle button').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+    });
+
+    (function initLang() {
+      var saved = null;
+      try { saved = localStorage.getItem('lokmana_lang'); } catch (e) {}
+      var browserId = (navigator.language || '').toLowerCase().indexOf('id') === 0;
+      setLang(saved || (browserId ? 'id' : 'en'));
+    })();
   </script>
 
   <!-- Botpress chatbot: paste the 2 <script> lines from Botpress Webchat here -->
