@@ -694,6 +694,24 @@
       border: 0;
     }
 
+    /* FEATURED VERTICAL DEMO */
+    .feature-video {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .feature-video video {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 9 / 16;
+      border-radius: 14px;
+      background: #000;
+      display: block;
+      box-shadow: var(--shadow-hover);
+    }
+    .feature-video .video-label { justify-content: center; text-align: center; }
+
     /* DEMO PROJECTS */
     .demo-grid {
       display: grid;
@@ -1077,6 +1095,11 @@
           <div class="stat"><strong>Auto</strong><span data-i18n="st_capture">Booking capture</span></div>
           <div class="stat"><strong data-i18n="st_instant">Instant</strong><span data-i18n="st_fo">Email alert to FO</span></div>
         </div>
+        <div class="feature-video">
+          <video src="avira-demo.mp4" poster="avira-demo-poster.jpg" controls playsinline preload="none"
+                 aria-label="Full demo: Avira Hotel guest chat to reception confirmation"></video>
+          <div class="video-label"><i class="ti ti-device-mobile" aria-hidden="true"></i> <span data-i18n="v_avira_full">Full demo (81s): a real guest chat — from question to booking to reception confirmation</span></div>
+        </div>
         <div class="video-row">
           <div>
             <button type="button" class="video" data-yt="sKYv25lRIzY" aria-label="Play Avira Hotel WhatsApp chatbot demo">
@@ -1266,6 +1289,7 @@
       st_capture: 'Booking tercatat',
       st_instant: 'Instan',
       st_fo: 'Notifikasi email ke FO',
+      v_avira_full: 'Demo lengkap (81 detik): chat asli tamu — dari bertanya, booking, sampai dikonfirmasi resepsionis',
       v_avira_wa: 'Chatbot WhatsApp → Google Sheets + email',
       v_avira_web: 'Chatbot website → Airtable + email',
       demo_label: 'Proyek demo',
